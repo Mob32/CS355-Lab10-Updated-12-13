@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Address - Add</title>
+    </head>
+    <body>
+        <h1>Add New Address</h1>
+        <form action = "/address/update" method = "get">
+            <input type = "hidden"
+                   id="address_id"
+                   name="address_id"
+                   value="<%= addresses.address_id %>"
+            />
+            Address Name: <input
+                    id= "street"
+                    name = "street"
+                    type = "text"
+                    value = "<%= addresses.street%>"
+            />
+            Address Zip Code: <input
+                    id="zip_code"
+                    name = "zip_code"
+                    type = "text"
+                    value = "<%= addresses.zip_code %>"
+            />
+            <br />
+            <input type = "submit" />
+        </form>
+    </body>
+</html>

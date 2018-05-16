@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Company - View All</title>
+</head>
+    <body>
+        <h1>Companies</h1>
+        <% if(locals.was_successful) { %>
+        <div>
+            <div id="message">
+                Deletion was successful.
+            </div>
+        </div>
+        <% } %>
+        <br>
+        <a href = "/company/add"> Add New Company</a> <br />
+        <table border ="1">
+            <tr><th>Name</th><th>Actions</th></tr>
+            <% for(var i=0;companies.length > i;i++) {%>
+            <tr>
+                <td>
+                    <%= companies[i].company_name%>
+                </td>
+                <td>
+                    <a href='/company/edit/?company_id=<%=companies[i].company_id%>'>
+                        Edit
+                    </a>
+                    &nbsp;<a href='/company/delete?company_id=<%= companies[i].company_id %>'>
+                        Delete
+                    </a>
+                </td>
+            </tr>
+            <%}%>
+        </table>
+    </body>
+</html>

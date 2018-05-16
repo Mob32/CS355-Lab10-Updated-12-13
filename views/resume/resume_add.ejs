@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resume - Add</title>
+    </head>
+    <body>
+    <h1>Add New Resume</h1>
+        <form action = "/resume/insert" method = "get">
+            <input type="hidden"
+                   id="account_id"
+                   name="account_id"
+                   value="<%= account_id %>"
+            />
+            Resume Name: <input name = "resume_name"
+                                type = "text"
+            />
+            <br />
+            <p>
+                Skills
+                <br>
+                <% for(var i =0; skill_res.length > i;i++){%>
+                <input type = "checkbox" name="skill_id" value=
+                "<%=skill_res[i].skill_id %>"> <%= skill_res[i].skill_name %>
+                <br>
+                <% }%>
+            </p>
+            <p>
+                Schools
+                <br />
+                <% for(var i =0; school_res.length > i;i++){%>
+                <input type = "checkbox" name="school_id" value=
+                "<%=school_res[i].school_id %>"> <%= school_res[i].school_name %>
+                <br>
+                <% }%>
+            </p>
+            <p>
+                Companies
+                <br />
+                <% for(var i =0; company_res.length > i;i++){%>
+                <input type = "checkbox" name="company_id" value=
+                "<%=company_res[i].company_id %>"> <%= company_res[i].company_name %>
+                <br>
+                <% }%>
+            </p>
+            <br>
+            <input type = "submit" />
+        </form>
+    </body>
+</html>

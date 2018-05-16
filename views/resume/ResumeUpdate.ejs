@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Company - ADD</title>
+</head>
+<body>
+    <h1>Edit Resume</h1>
+    <% if(locals.was_successful) { %>
+    <div>
+        <div id="message">
+            <%= resume_name.resume_name %> was successfully saved.
+        </div>
+    </div>
+    <% } %>
+    <br>
+    <form action = "/resume/update" method = "get">
+        <input type="hidden"
+               id="resume_id"
+               name="resume_id"
+               value="<%= resume_id %>"
+        />
+        Resume Name: <input
+                id = "resume_name"
+                name = "resume_name"
+                type ="text"
+                value="<%= resume_name.resume_name %>"
+        />
+        <p>
+            Skills
+            <br>
+            <% for(var i =0; res_skill.length > i;i++){
+                var checked = "";
+                if(res_skill[i].resume_id != null) {
+                    checked = "checked";
+                }
+            %>
+            <input type = "checkbox" name="skill_id" <%= checked %> value=
+            "<%=res_skill[i].skill_id %>"> <%= res_skill[i].skill_name %>
+            <br>
+            <% }%>
+        </p>
+        <p>
+            Schools
+            <br />
+            <% for(var i =0; res_school.length > i;i++){
+                var checked = "";
+                if(res_school[i].resume_id != null) {
+                    checked = "checked";
+                }
+            %>
+            <input type = "checkbox" name="school_id" <%= checked %> value=
+            "<%=res_school[i].school_id %>"> <%= res_school[i].school_name %>
+            <br>
+            <% }%>
+        </p>
+        <p>
+            Companies
+            <br />
+            <% for(var i =0; res_company.length > i;i++){
+                var checked = "";
+                if(res_company[i].resume_id != null) {
+                    checked = "checked";
+                }
+            %>
+            <input type = "checkbox" name="company_id" <%= checked %> value=
+            "<%=res_company[i].company_id %>"> <%= res_company[i].company_name %>
+            <br>
+            <% }%>
+        </p>
+        <br />
+        <input type="submit" />
+    </form>
+</body>
+</html>

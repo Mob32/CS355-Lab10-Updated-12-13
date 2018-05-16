@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Select User</title>
+    </head>
+    <body>
+    <h1>Select User</h1>
+        <form action = "/resume/add" method = "get">
+            <select name = "account_id">
+                <% for(var i=0;res_user.length > i;i++) {%>
+                    <option value="<%= res_user[i].account_id %>">
+                        <%=res_user[i].first_name + " " + res_user[i].last_name%></option>
+                <%}%>
+            </select>
+            <br>
+            <br>
+            <input type = "submit" />
+        </form>
+    </body>
+</html>
